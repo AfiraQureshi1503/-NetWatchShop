@@ -3,31 +3,26 @@
    ========================================================= */
 
 :root {
-  /* Main colors */
-  --bg:            #F8EDDF;
-  --surface:       #F8EDDF;
-  --surface-alt:   #EEDDC8;
+  --bg: #F8EDDF;
+  --surface: #F8EDDF;
+  --surface-alt: #EEDDC8;
 
-  /* Dark text */
-  --ink:            #111111;
-  --ink-soft:       #222222;
-  --ink-faint:      #555555;
+  --ink: #111111;
+  --ink-soft: #222222;
+  --ink-faint: #555555;
 
-  /* Brown theme */
-  --brown:         #B88752;
-  --brown-dark:    #9A6D3E;
-  --brown-light:   #C99A68;
-  --brown-tint:    #E8D0B3;
+  --brown: #B88752;
+  --brown-dark: #9A6D3E;
+  --brown-light: #C99A68;
+  --brown-tint: #E8D0B3;
 
-  --line:           #D5B895;
+  --line: #D5B895;
 
-  /* Brand colors */
-  --instagram:     #E4405F;
-  --tiktok:        #000000;
-  --youtube:       #FF0000;
+  --instagram: #E4405F;
+  --tiktok: #000000;
+  --youtube: #FF0000;
 
-  /* WhatsApp */
-  --whatsapp:      #25D366;
+  --whatsapp: #25D366;
   --whatsapp-deep: #1DA851;
 
   --font-head: "Space Grotesk", system-ui, -apple-system, sans-serif;
@@ -418,7 +413,7 @@ span:nth-child(3) {
 
 
 /* =========================================================
-   BLUE TEXT → BROWN
+   EYEBROW
    ========================================================= */
 
 .eyebrow {
@@ -577,9 +572,14 @@ span:nth-child(3) {
    VIDEO
    ========================================================= */
 
-/* FIX: video section ke upar border ke baad normal section gap */
 .video-block {
-  padding-top: 88px;
+  padding-top: 55px !important;
+  padding-bottom: 88px;
+}
+
+.video-block .section__head {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .video-frame {
@@ -652,8 +652,7 @@ span:nth-child(3) {
 
 .product-grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
 }
 
@@ -693,8 +692,7 @@ span:nth-child(3) {
   font-size: .75rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  box-shadow:
-    0 2px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -830,7 +828,7 @@ span:nth-child(3) {
 
 
 /* =========================================================
-   PRODUCT SPECIFICATIONS — COLLAPSIBLE
+   PRODUCT SPECIFICATIONS
    ========================================================= */
 
 .product-card__specs {
@@ -911,7 +909,7 @@ span:nth-child(3) {
 
 
 /* =========================================================
-   PRODUCT VIDEO (inside product card)
+   PRODUCT VIDEO
    ========================================================= */
 
 .product-card__video {
@@ -1011,7 +1009,7 @@ span:nth-child(3) {
 
 
 /* =========================================================
-   VIDEOS SECTION (general/owner videos)
+   VIDEOS SECTION
    ========================================================= */
 
 .videos-grid {
@@ -1121,8 +1119,7 @@ span:nth-child(3) {
 
 .contact-grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 16px;
 }
 
@@ -1164,47 +1161,39 @@ span:nth-child(3) {
 
 
 /* =========================================================
-   CONTACT SOCIAL BRAND COLORS
+   CONTACT SOCIAL COLORS
    ========================================================= */
 
-#contactInstagramCard
-.contact-card__icon {
+#contactInstagramCard .contact-card__icon {
   color: var(--instagram);
 }
 
-#contactInstagramCard
-.contact-card__icon svg {
+#contactInstagramCard .contact-card__icon svg {
   color: var(--instagram);
 }
 
-#contactTiktokCard
-.contact-card__icon {
+#contactTiktokCard .contact-card__icon {
   color: var(--tiktok);
 }
 
-#contactTiktokCard
-.contact-card__icon svg {
+#contactTiktokCard .contact-card__icon svg {
   color: var(--tiktok);
 }
 
-#contactYoutubeCard
-.contact-card__icon {
+#contactYoutubeCard .contact-card__icon {
   color: var(--youtube);
 }
 
-#contactYoutubeCard
-.contactYoutubeCard__icon svg {
+#contactYoutubeCard .contact-card__icon svg {
   color: var(--youtube);
 }
 
-.contact-card--whatsapp
-.contact-card__icon {
+.contact-card--whatsapp .contact-card__icon {
   background: #E7FBEF;
   color: var(--whatsapp-deep);
 }
 
-.contact-card--whatsapp
-.contact-card__icon svg {
+.contact-card--whatsapp .contact-card__icon svg {
   color: var(--whatsapp-deep);
 }
 
@@ -1361,6 +1350,7 @@ span:nth-child(3) {
    ========================================================= */
 
 @media (max-width: 1080px) {
+
   .section {
     padding: 72px 44px;
   }
@@ -1372,10 +1362,16 @@ span:nth-child(3) {
   .footer {
     padding: 48px 44px 24px;
   }
+
+  /* Keep video section gap */
+  .video-block {
+    padding-top: 55px !important;
+  }
 }
 
 
 @media (max-width: 900px) {
+
   .hero__grid {
     grid-template-columns: 1fr;
   }
@@ -1403,6 +1399,7 @@ span:nth-child(3) {
 
 
 @media (max-width: 760px) {
+
   :root {
     --sidebar-w: 280px;
   }
@@ -1477,10 +1474,16 @@ span:nth-child(3) {
   .footer {
     padding: 44px 22px 22px;
   }
+
+  /* Keep video gap on mobile */
+  .video-block {
+    padding-top: 55px !important;
+  }
 }
 
 
 @media (max-width: 480px) {
+
   .product-grid {
     grid-template-columns: 1fr;
   }
@@ -1498,4 +1501,18 @@ span:nth-child(3) {
   .hero__actions .btn {
     justify-content: center;
   }
+
+  /* Final video spacing */
+  .video-block {
+    padding-top: 55px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL VIDEO GAP — DO NOT REMOVE
+   ========================================================= */
+
+section.video-block {
+  padding-top: 55px !important;
 }
