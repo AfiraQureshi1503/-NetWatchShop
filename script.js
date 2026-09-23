@@ -370,7 +370,7 @@
 
       if (products) {
 
-        renderProducts(
+        initProductSearch(
           products,
           content && content.whatsappLink
             ? content.whatsappLink
@@ -578,6 +578,58 @@
       "</a>" +
       "</div>"
     );
+  }
+
+  /* ---------- Product Search ---------- */
+
+  var allProducts = [];
+  var productWaLink = "";
+
+  function initProductSearch(products, baseWaLink) {
+    allProducts = products;
+    productWaLink = baseWaLink;
+
+    renderProducts(allProducts, productWaLink);
+
+    var input = document.getElementById("productSearch");
+
+    if (!input || input.dataset.bound) return;
+
+    input.dataset.bound = "1";
+
+    input.addEventListener("input", function () {
+      var raw = input.value.trim();
+      var q = raw.toLowerCase();
+
+      if (!q) {
+        renderProducts(allProducts, productWaLink);
+        return;
+      }
+
+      var words = q.split(/\s+/);
+
+      var results = allProducts.filter(function (p) {
+        var text = [
+          p.name,
+          p.description,
+          parseSpecs(p.specifications).join(" ")
+        ].join(" ").toLowerCase();
+
+        return words.every(function (w) {
+          return text.indexOf(w) !== -1;
+        });
+      });
+
+      if (results.length === 0) {
+        document.getElementById("productGrid").innerHTML =
+          '<p class="no-products">No products found for "' +
+          escapeHtml(raw) +
+          '". Try a different word or message us on WhatsApp.</p>';
+        return;
+      }
+
+      renderProducts(results, productWaLink);
+    });
   }
 
   /* ---------- Render Products ---------- */
