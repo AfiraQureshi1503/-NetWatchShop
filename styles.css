@@ -1516,3 +1516,49 @@ span:nth-child(3) {
 section.video-block {
   padding-top: 55px !important;
 }
+
+
+/* =========================================================
+   PRODUCT SEARCH
+   ========================================================= */
+
+.product-search {
+  position: relative;
+  max-width: 480px;
+  margin-top: 22px;
+}
+
+.product-search svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+.product-search input {
+  width: 100%;
+  padding: 13px 16px 13px 44px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.product-search input:focus {
+  border-color: var(--brown);
+  box-shadow: 0 0 0 3px var(--brown-tint);
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  color: var(--ink-faint);
+  padding: 24px 0;
+}
